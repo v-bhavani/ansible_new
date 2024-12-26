@@ -1,0 +1,14 @@
+---
+- name: Playbook for multiple filesystem creations
+  hosts: all
+  become: true
+  vars_prompt:
+    - name: target_group
+      prompt: "Enter the inventory group you want to target for filesystem creation"
+      private: no
+
+  hosts: "{{ target_group }}"
+  vars_files:
+    - ../vars/fscreationvariable.yaml
+  roles:
+    - filesystem_creation

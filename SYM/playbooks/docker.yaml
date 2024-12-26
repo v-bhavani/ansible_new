@@ -1,0 +1,12 @@
+# playbook/docker.yml
+---
+- hosts: all
+  become: yes
+  vars_prompt:
+    - name: target_group
+      prompt: "Enter the inventory group you want to target for Docker installation"
+      private: no
+
+  hosts: "{{ target_group }}"
+  roles:
+    - docker
