@@ -12,4 +12,4 @@
     - docker
 
   vars_files:
-    - roles/docker/vars/vars.yaml
+    - roles/docker/Vars/vars.yaml
