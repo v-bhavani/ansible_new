@@ -1,0 +1,14 @@
+# roles/docker/vars/main.yml
+
+---
+# Docker package name
+docker_package: docker-ce
+
+# Version of Docker Compose to be downloaded
+docker_compose_version: "v2.21.0"
+
+# List of users to be added to the Docker group
+docker_users:
+  - user1
+  - user2
+  - user3

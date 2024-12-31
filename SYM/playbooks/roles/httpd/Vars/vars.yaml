@@ -1,0 +1,12 @@
+# roles/httpd/vars/main.yml
+---
+httpd_package_name: httpd
+httpd_extra_packages:
+  - mod_ssl
+  - php
+httpd_server_admin: webmaster@example.com
+httpd_port: 80
+httpd_document_root: /var/www/html
+local_web_files_path: /path/to/local/web/files
+httpd_enable_firewalld: true
+httpd_service_name: httpd

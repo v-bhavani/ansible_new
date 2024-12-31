@@ -1,0 +1,66 @@
+---
+- name: Display device contents
+  shell: "ls -ll /dev/disk/azure/scsi1/lun{{ item.lun }} | awk '{print $11}' | cut -d '/' -f 4-"
+  register: command_output
+  changed_when: false
+  loop: "{{ fs_vars }}"
+  loop_control:
+    label: "{{ item.vg_name }}"
+
+- name: Set device paths
+  set_fact:
+    device_paths: "{{ device_paths | default([]) + [{'vg_name': item.vg_name, 'device': command_output.results[loop.index0].stdout}] }}"
+  loop: "{{ fs_vars }}"
+  loop_control:
+    label: "{{ item.vg_name }}"
+
+- name: Install lvm2 dependency
+  package:
+    name: lvm2
+    state: present
+
+- name: Create volume group
+  lvg:
+    vg: "{{ item.vg_name }}"
+    pvs: "/dev/{{ item.device }}"
+    pesize: 16
+  loop: "{{ device_paths }}"
+  loop_control:
+    label: "{{ item.vg_name }}"
+
+- name: Create logical volume
+  lvol:
+    vg: "{{ item.vg_name }}"
+    lv: "{{ item.lv_name }}"
+    size: "{{ item.size }}"
+    force: yes
+  loop: "{{ fs_vars }}"
+  loop_control:
+    label: "{{ item.vg_name }}"
+
+- name: Create directory mountpoint if it does not exist
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+    mode: '0777'
+  loop: "{{ fs_vars }}"
+  loop_control:
+    label: "{{ item.vg_name }}"
+
+- name: Format the filesystem
+  filesystem:
+    fstype: "{{ item.ftype }}"
+    dev: "/dev/{{ item.vg_name }}/{{ item.lv_name }}"
+  loop: "{{ fs_vars }}"
+  loop_control:
+    label: "{{ item.vg_name }}"
+
+- name: Mount the logical volume on mountpoint
+  mount:
+    src: "/dev/{{ item.vg_name }}/{{ item.lv_name }}"
+    fstype: "{{ item.ftype }}"
+    state: mounted
+    path: "{{ item.dir }}"
+  loop: "{{ fs_vars }}"
+  loop_control:
+    label: "{{ item.vg_name }}"
