@@ -10,3 +10,6 @@
   hosts: "{{ target_group }}"
   roles:
     - docker
+
+  vars_files:
+    - roles/docker/vars/vars.yaml
