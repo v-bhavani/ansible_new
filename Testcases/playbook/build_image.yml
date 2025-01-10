@@ -1,0 +1,18 @@
+---
+- name: Build and Containerize Docker Image
+  hosts: "{{ target_host }}"
+  become: yes
+
+  vars_prompt:
+  - name: "target_host"
+    prompt: "Enter the target host (use hostname or IP address):"
+    private: no
+
+  roles:
+    - image_and_container/build_image
+    - image_and_container/containerize_image
+
+  vars_files:
+    - roles\image_and_container\build_image\vars\vars.yml
+    - roles\image_and_container\containerize_image\vars\vars.yml
+

@@ -1,0 +1,13 @@
+---
+- name: User and Group Management Playbook
+  hosts: "{{ target_host }}"
+  become: yes
+  
+  vars_prompt:
+    - name: "target_host"
+      prompt: "Enter the target host (use hostname or IP address):"
+      private: no
+  roles:
+    - user_management
+  vars_files:
+    - roles\user_management\vars\vars.yml

@@ -1,0 +1,5 @@
+---
+cli_packages:
+  - curl
+  - wget
+  - vim

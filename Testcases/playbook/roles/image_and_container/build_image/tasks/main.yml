@@ -1,0 +1,7 @@
+---
+- name: Build Docker image
+  docker_image:
+    path: "{{ docker_build_context }}"
+    name: "{{ image_name }}"
+    tag: "{{ image_tag }}"
+    state: present

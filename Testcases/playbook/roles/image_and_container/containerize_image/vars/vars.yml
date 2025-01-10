@@ -1,0 +1,3 @@
+container_name: "ansible_container"
+image_name: "ansibleapp"
+image_tag: "latest"
