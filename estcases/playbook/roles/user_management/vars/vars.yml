@@ -1,7 +1,0 @@
----
-user_name: 
-  - ansibleuser1
-  - ansibleuser02
-group_name: ansiblegroup
-permission_path: /home/ansibleuser1
-permission_mode: "0755"
