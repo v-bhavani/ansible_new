@@ -10,4 +10,4 @@
   roles:
     - user_management
   vars_files:
-    - roles\user_management\vars\vars.yml
+    - roles/user_management/vars/vars.yml
