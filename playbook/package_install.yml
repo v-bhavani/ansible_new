@@ -8,8 +8,8 @@
       prompt: "Enter the target host (use hostname or IP address):"
       private: no
   roles:
-    - package_install/cli
-    - package_install/docker
-    - package_install/httpd
-  vars_files:
-    - roles\package_install\docker\vars\vars.yml
+    - role: package_install/cli
+    - role: package_install/docker
+      vars_files:
+        - roles/package_install/docker/vars/vars.yml
+    - role: package_install/httpd
