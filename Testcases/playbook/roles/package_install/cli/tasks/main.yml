@@ -1,5 +1,0 @@
----
-- name: Install CLI tools
-  package:
-    name: "{{ cli_packages }}"
-    state: present

@@ -1,3 +1,0 @@
-docker_build_context: /home/ansibleuser1/image
-image_name: "ansibleapp"
-image_tag: "latest"
