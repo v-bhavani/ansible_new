@@ -1,0 +1,12 @@
+docker_dependencies:
+  - apt-transport-https
+  - ca-certificates
+  - gnupg
+  - lsb-release
+
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+
+docker_user: ansibleuser1
