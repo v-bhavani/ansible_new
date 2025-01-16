@@ -3,5 +3,5 @@ user_name:
   - ansibleuser001
   - ansibleuser002
 group_name: ansiblegroupnew
-permission_path: /home/ansibleuser1
+permission_path: /home
 permission_mode: "0755"
