@@ -1,0 +1,25 @@
+# CLI tools to be installed
+cli_tools:
+  - curl
+  - wget
+  - vim
+
+# Docker dependencies
+docker_dependencies:
+  - apt-transport-https
+  - ca-certificates
+  - gnupg
+  - lsb-release
+
+# Docker packages
+docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+
+# Docker user
+docker_user: ansibleuser1
+
+# HTTPD (Apache) package and service
+httpd_package: apache2
+httpd_service: apache2

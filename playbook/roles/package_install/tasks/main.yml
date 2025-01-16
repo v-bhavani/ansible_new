@@ -1,0 +1,49 @@
+---
+- name: Install CLI tools
+  ansible.builtin.package:
+    name: "{{ item}}"
+    state: present
+  loop: "{{ cli_tools }}"
+
+- name: Install dependencies
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ docker_dependencies }}"
+
+- name: Add Docker GPG key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+
+- name: Update package list
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install Docker
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ docker_packages }}"
+
+- name: Add user to Docker group
+  user:
+    name: "{{ docker_user }}"
+    groups: docker
+    append: yes
+
+- name: Install HTTPD (Apache)
+  package:
+    name: "{{ httpd_package }}"
+    state: present
+  
+- name: Ensure HTTPD is enabled and running
+  service:
+    name: "{{ httpd_service }}"
+    state: started
+    enabled: true
