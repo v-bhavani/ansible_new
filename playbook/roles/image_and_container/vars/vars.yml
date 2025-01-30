@@ -1,0 +1,5 @@
+# vars.yml
+
+image_name: "nginx"
+image_tag: "latest"
+container_name: "nginx_container"
