@@ -41,9 +41,23 @@
   package:
     name: "{{ httpd_package }}"
     state: present
-  
+
 - name: Ensure HTTPD is enabled and running
   service:
     name: "{{ httpd_service }}"
     state: started
     enabled: true
+
+- name: Install required Python libraries for Docker
+  pip:
+    name: docker
+    state: present
+  become: yes
+
+- name: Verify Docker installation
+  command: docker --version
+  register: docker_version
+
+- name: Display Docker version
+  debug:
+    msg: "Docker version: {{ docker_version.stdout }}"
