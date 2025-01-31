@@ -1,7 +1,7 @@
 ---
 users: 
   - ansiblegithubuser
-group_name: ansiblegroupnew
+  - ansibleuser3101
+group_name: ansiblegroup3101
 permission_path_base: /home
 permission_mode: "0755"
-#ssh commit successfull
