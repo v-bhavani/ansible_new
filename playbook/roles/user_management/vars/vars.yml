@@ -1,6 +1,6 @@
-group_name: ansiblegroup            
-users:                         
-  - ansibleuser1
-  - ansibleuser2
-permission_path_base: /home    
-permission_mode: "0755"        
+---
+users: 
+  - ansibledevopsusernative
+group_name: ansiblegroupnew
+permission_path_base: /home
+permission_mode: "0755"
