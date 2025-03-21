@@ -1,5 +1,5 @@
 ---
-users:
+users: 
   - ansiblegithubazureuser44
 group_name: ansiblegroupnew
 permission_path_base: /home
