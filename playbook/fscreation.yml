@@ -1,0 +1,6 @@
+- name: Playbook for LVM creation and XFS mount
+  hosts: all
+  become: true
+
+  roles:
+    - lvm_xfs
