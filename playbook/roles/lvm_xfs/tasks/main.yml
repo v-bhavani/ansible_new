@@ -1,11 +1,8 @@
 - name: Install required packages
   apt:
-    name: "{{ item }}"
+    name: "lvm2"
     state: present
-  loop:
-    - lvm2
-    - xfsprogs
-
+    
 - name: Create a physical volume
   command: pvcreate /dev/{{ device_name }}
   when: device_name is defined
