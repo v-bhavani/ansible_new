@@ -1,6 +1,6 @@
 ---
 users: 
-  - ansiblegithubazureuserappp2
+  - ansiblegithubazureuserregtesting1
 group_name: ansiblegroupnew
 permission_path_base: /home
 permission_mode: "0755"
