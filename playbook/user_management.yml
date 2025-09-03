@@ -7,7 +7,10 @@
     - name: "target_host"
       prompt: "Enter the target host (use hostname or IP address):"
       private: no
-  roles:
-    - user_management
+      
   vars_files:
     - roles/user_management/vars/vars.yml
+    
+  roles:
+    - user_management
+
