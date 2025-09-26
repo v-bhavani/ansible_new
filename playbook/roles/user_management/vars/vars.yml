@@ -1,6 +1,6 @@
 ---
 users: 
   - ansibleuserbtbcktappstoreone1
-group_name: ansiblegroupnew
+group_name: ansiblegroupnew1
 permission_path_base: /home
 permission_mode: "0755"
