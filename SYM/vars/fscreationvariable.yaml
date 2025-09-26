@@ -12,4 +12,4 @@ fs_vars:
     dir: "/ansibletest2"
     ftype: "xfs"
     size: "5g"
-    dummy:"test"
+    dummy: "test"
