@@ -1,21 +1,22 @@
 fs_vars:
-  - lun: 0
-    vg_name: vg_data
-    lv_name: lv_data
-    size: 20g
-    ftype: ext4
-    dir: /mnt/data
+  # - lun: 0
+  #   vg_name: vg_data
+  #   lv_name: lv_data
+  #   size: 20g
+  #   ftype: ext4
+  #   dir: /mnt/data
 
   - lun: 1
     vg_name: vg_logs
     lv_name: lv_logs
-    size: 10g
+    size: 31g
     ftype: xfs
     dir: /mnt/logs
 
-  - lun: 2
-    vg_name: vg_backup
-    lv_name: lv_backup
-    size: 50g
-    ftype: ext4
+  # - lun: 2
+  #   vg_name: vg_backup
+  #   lv_name: lv_backup
+  #   size: 50g
+  #   ftype: ext4
+
     dir: /mnt/backup
